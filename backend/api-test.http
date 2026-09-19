@@ -1,0 +1,24 @@
+### AccessBridge Accessibility Test
+
+POST http://localhost:5000/api/accessibility/analyze
+Content-Type: application/json
+
+{
+    "content": "Applicants must submit a completed application form along with a valid identity proof and address proof. The application must be submitted before 5:00 PM on 30 September 2026. Applications submitted after the deadline may not be accepted.",
+    "language": "en"
+}
+### Test Image Analyze API
+
+POST http://localhost:5000/api/images/analyze
+Content-Type: multipart/form-data; boundary=----AccessBridgeImageBoundary
+
+------AccessBridgeImageBoundary
+Content-Disposition: form-data; name="language"
+
+en
+------AccessBridgeImageBoundary
+Content-Disposition: form-data; name="image"; filename="application-test.jpg"
+Content-Type: image/jpeg
+
+< ./uploads/application-test.jpg
+------AccessBridgeImageBoundary--
